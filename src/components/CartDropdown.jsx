@@ -11,7 +11,7 @@ export default function CartDropdown() {
   );
 
   return (
-    <div className="absolute right-0 mt-2 w-100 rounded-xl border border-[#ddd5c8] bg-white p-4 shadow-lg">
+    <div className="absolute -right-14 md:right-0 mt-2 w-86 md:w-100 rounded-xl border border-[#ddd5c8] bg-white p-4 shadow-lg">
       <p className="text-xl font-semibold mb-3">Your Cart</p>
       {cart.length === 0 ? (
         <div className="w-full flex items-center justify-center">

@@ -40,26 +40,45 @@ function Navbar() {
 
   return (
     <nav className="bg-[#FAF7F2] shadow-md sticky top-0 left-0 right-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex gap-6 items-center">
-          <h1 className="text-sm md:text-2xl font-bold text-black">
+      <div className="max-w-7xl mx-auto px-6 py-3 md:py-4 flex items-center justify-between">
+        <div className="flex gap-3 md:gap-6 items-center">
+          <h1 className="text-lg md:text-2xl font-bold text-black">
             PasarKita
           </h1>
-          <Link to="/" className="text-xs md:text-base text-gray-700 hover:text-[#B85C38]">
-            Browse
-          </Link>
+          <div className="hidden md:flex gap-6 items-center">
+            <Link
+              to="/"
+              className="text-xs md:text-base text-gray-700 hover:text-[#B85C38]"
+            >
+              Browse
+            </Link>
 
-          <Link to="/my-shop" className="text-xs md:text-base text-gray-700 hover:text-[#B85C38]">
-            My Shop
-          </Link>
-          <Link to="/my-orders" className="text-xs md:text-base text-gray-700 hover:text-[#B85C38]">
-            My Orders
-          </Link>
+            <Link
+              to="/my-shop"
+              className="text-xs md:text-base text-gray-700 hover:text-[#B85C38]"
+            >
+              My Shop
+            </Link>
+            <Link
+              to="/my-orders"
+              className="text-xs md:text-base text-gray-700 hover:text-[#B85C38]"
+            >
+              My Orders
+            </Link>
+          </div>
+          <div className="flex md:hidden">
+            <Link
+              to="/"
+              className="text-sm text-gray-700 hover:text-[#B85C38]"
+            >
+              Browse
+            </Link>
+          </div>
         </div>
-        <div className="flex gap-6 items-center justify-center">
+        <div className="flex gap-4 md:gap-6 items-center justify-center">
           <div className="relative" ref={cartRef}>
             <button onClick={() => setShowCart(!showCart)} className="relative">
-              <img src={cartIcon} alt="Cart" className="w-6 h-6" />
+              <img src={cartIcon} alt="Cart" className="w-6.5 h-6.5" />
               {totalItems > 0 && (
                 <span className="absolute -right-2 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#B85C38] text-[10px] text-white">
                   {totalItems}
@@ -73,7 +92,11 @@ function Navbar() {
               onClick={() => setShowProfile(!showProfile)}
               className="relative"
             >
-              <img src={currentUser.avatar} alt="Profile" className="w-10 h-10" />
+              <img
+                src={currentUser.avatar}
+                alt="Profile"
+                className="w-10 h-10"
+              />
             </button>
             {showProfile && <ProfileDropdown />}
           </div>

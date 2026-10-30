@@ -39,7 +39,7 @@ export default function SearchResults() {
         {results.length === 0 ? (
           <p className="text-center">No products found</p>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 max-w-7xl mx-auto ">
             {results.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}

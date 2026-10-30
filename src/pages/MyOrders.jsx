@@ -25,13 +25,13 @@ export default function MyOrders() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-6 py-8 flex flex-col gap-3">
-      <h1 className="text-3xl font-serif">My Orders</h1>
-      <div className="flex flex-col gap-3">
+    <div className="mx-auto w-full max-w-7xl px-6 py-4 md:py-8 flex flex-col gap-3">
+      <h1 className="text-2xl md:text-3xl font-serif">My Orders</h1>
+      <div className="flex flex-col gap-2 md:gap-3">
         {myOrders.map((order) => (
           <div
             key={order.id}
-            className="flex justify-between rounded-lg bg-white p-3 gap-2"
+            className="flex justify-between rounded-lg bg-white p-2 md:p-3 gap-2"
           >
             <div className="flex items-center gap-3">
               <img 
@@ -40,24 +40,24 @@ export default function MyOrders() {
                 className="h-20 w-20 rounded-lg"
               />
               <div>
-                <p className="">#{order.id}</p>
-                <p className="font-semibold  text-sm md:text-xl">{order.item}</p>
-                <p className="text-sm md:text-base">Quantity : {order.quantity}</p>
-                <p className="text-sm md:text-base">
+                <p className="text-sm md:text-base">#{order.id}</p>
+                <p className="font-semibold  text-xs md:text-xl">{order.item}</p>
+                <p className="text-xs md:text-base">Quantity : {order.quantity}</p>
+                <p className="text-xs md:text-base">
                   {order.order_date} - Rp{order.total.toLocaleString("id-ID")}
                 </p>
               </div>
             </div>
             <div className="flex flex-col justify-between items-end">
               <span
-                className={`rounded-full px-3 py-1 text-sm ${badge(order.status)}`}
+                className={`rounded-full px-3 py-1 text-[10px] md:text-sm ${badge(order.status)}`}
               >
                 {order.status}
               </span>
               {order.status === "Shipped" && (
                 <button
                   onClick={() => confirmDelivered(order.id)}
-                  className="rounded-lg bg-[#B85C38] px-2 py-2 text-xs text-white hover:opacity-90"
+                  className="rounded-lg bg-[#B85C38] px-2 py-1.5 md:py-2 text-[10px] md:text-xs text-white hover:opacity-90"
                 >
                   Confirm Order
                 </button>
